@@ -18,11 +18,29 @@ library(forecast)
 AirPassengers
 
 ```
-- Previsão, controle, evolução através do tempo
+> Previsão, controle, evolução através do tempo
+
+> Valores Observados:
+  
+  - Tendência
+  - Sazonalidade
+  - Aleaoridade
+      -> Podem existir
+  
 
 ```{r}
 summary(AirPassengers)
 plot(AirPassengers)
 plot(aggregate(AirPassengers))
 ```
+> Arima 
+
+- Robusta e requer dados estacionários
+- Transforma os dados como técnicas de diferenciaçao
+
+> Previsões com Arima
+
+- AR -> Autorregressivo: avalia a relação entre os períodos.
+- I -> Integrado: Aplica diferenciação se necessário.
+- M -> Média Móvel: Avalia erros entre períodos e os extrai.
 
