@@ -1,46 +1,106 @@
 ---
-title: "R Notebook"
+title: "Séries Temporais com R"
 output: html_notebook
 ---
 
-1 - A série temporal é uma mesma variável -> suposição de relação entre intervalos.
-2 - Possui ordem.
+# SÉRIES TEMPORAIS
 
-> Estacionárias: Mesma média e varância
-> Não Estacionárias: Podem ter efeitos sazonais por ex
+Aula do professor Fernando Amaral
 
-> Estocásticas: Fator aleatório que não pode ser explicado
-> Determinísticas: Explicado através de fórmula ou função
+1 - A série temporal é uma mesma variável -\> suposição de relação entre intervalos. 2 - Possui ordem.
+
+> Estacionárias: Mesma média e varância Não Estacionárias: Podem ter efeitos sazonais por ex
+
+> Estocásticas: Fator aleatório que não pode ser explicado Determinísticas: Explicado através de fórmula ou função
 
 ```{r}
+# install.packages("forecast")
+
 library(forecast)
 
 AirPassengers
 
 ```
+
 > Previsão, controle, evolução através do tempo
 
 > Valores Observados:
-  
-  - Tendência
-  - Sazonalidade
-  - Aleaoridade
-      -> Podem existir
-  
+
+-   Tendência
+-   Sazonalidade
+-   Aleaoridade -> Podem existir
 
 ```{r}
 summary(AirPassengers)
 plot(AirPassengers)
 plot(aggregate(AirPassengers))
 ```
-> Arima 
 
-- Robusta e requer dados estacionários
-- Transforma os dados como técnicas de diferenciaçao
+> Arima
+
+-   Robusta e requer dados estacionários
+-   Transforma os dados como técnicas de diferenciaçao
 
 > Previsões com Arima
 
-- AR -> Autorregressivo: avalia a relação entre os períodos.
-- I -> Integrado: Aplica diferenciação se necessário.
-- M -> Média Móvel: Avalia erros entre períodos e os extrai.
+-   AR -\> Autorregressivo: avalia a relação entre os períodos.
+-   I -\> Integrado: Aplica diferenciação se necessário.
+-   MA -\> Média Móvel: Avalia erros entre períodos e os extrai.
+
+> Gerando uma Janela
+
+```{r}
+subst = window(AirPassengers, start=c(1955, 1), end=c(1956,12))
+plot(subst)
+```
+
+> Gerando decomposição
+
+```{r}
+dec = decompose(AirPassengers)
+dec
+```
+
+> Analisando elementos da decomposição
+
+```{r}
+plot(dec)
+plot(dec$x)
+plot(dec$trend)
+plot(dec$seasonal)
+plot(dec$random)
+```
+
+> Suavização Exponencial
+
+```{r}
+x = ets(AirPassengers)
+x
+```
+
+> Prevendo 2 Anos à frente
+
+```{r}
+
+preview = forecast(x, h=24)
+plot(preview)
+
+```
+> Arima
+
+```{r}
+arima = auto.arima(AirPassengers)
+arima
+```
+
+> Prevendo com o Arima
+
+```{r}
+preview = forecast(arima, h=24)
+plot(preview)
+
+```
+
+
+
 
