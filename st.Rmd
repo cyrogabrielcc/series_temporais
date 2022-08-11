@@ -3,11 +3,9 @@ title: "Séries Temporais com R"
 output: html_notebook
 ---
 
-# SÉRIES TEMPORAIS
-
 Aula do professor Fernando Amaral
 
-1 - A série temporal é uma mesma variável -\> suposição de relação entre intervalos. 2 - Possui ordem.
+1 - A série temporal é uma mesma variável: suposição de relação entre intervalos. 2 - Possui ordem.
 
 > Estacionárias: Mesma média e varância Não Estacionárias: Podem ter efeitos sazonais por ex
 
@@ -28,7 +26,7 @@ AirPassengers
 
 -   Tendência
 -   Sazonalidade
--   Aleaoridade -> Podem existir
+-   Aleaoridade -\> Podem existir
 
 ```{r}
 summary(AirPassengers)
@@ -86,6 +84,7 @@ preview = forecast(x, h=24)
 plot(preview)
 
 ```
+
 > Arima
 
 ```{r}
@@ -100,7 +99,3 @@ preview = forecast(arima, h=24)
 plot(preview)
 
 ```
-
-
-
-
