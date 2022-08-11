@@ -1768,18 +1768,21 @@ pre code {
 
 
 <!-- rnb-text-begin -->
+<p>1 - A série temporal é uma mesma variável -&gt; suposição de relação
+entre intervalos. 2 - Possui ordem.</p>
+<blockquote>
+<p>Estacionárias: Mesma média e varância Não Estacionárias: Podem ter
+efeitos sazonais por ex</p>
+</blockquote>
+<blockquote>
+<p>Estocásticas: Fator aleatório que não pode ser explicado
+Determinísticas: Explicado através de fórmula ou função</p>
+</blockquote>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxubGlicmFyeShmb3JlY2FzdClcblxuYGBgIn0= -->
-<pre class="r"><code>library(forecast)
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuQWlyUGFzc2VuZ2Vyc1xuXG5gYGAifQ== -->
+<pre class="r"><code>AirPassengers
 </code></pre>
-<!-- rnb-source-end -->
-<!-- rnb-chunk-end -->
-<!-- rnb-text-begin -->
-<!-- rnb-text-end -->
-<!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuQWlyUGFzc2VuZ2Vyc1xuYGBgIn0= -->
-<pre class="r"><code>AirPassengers</code></pre>
 <!-- rnb-source-end -->
 <!-- rnb-output-begin eyJkYXRhIjoiICAgICBKYW4gRmViIE1hciBBcHIgTWF5IEp1biBKdWwgQXVnIFNlcCBPY3QgTm92IERlY1xuMTk0OSAxMTIgMTE4IDEzMiAxMjkgMTIxIDEzNSAxNDggMTQ4IDEzNiAxMTkgMTA0IDExOFxuMTk1MCAxMTUgMTI2IDE0MSAxMzUgMTI1IDE0OSAxNzAgMTcwIDE1OCAxMzMgMTE0IDE0MFxuMTk1MSAxNDUgMTUwIDE3OCAxNjMgMTcyIDE3OCAxOTkgMTk5IDE4NCAxNjIgMTQ2IDE2NlxuMTk1MiAxNzEgMTgwIDE5MyAxODEgMTgzIDIxOCAyMzAgMjQyIDIwOSAxOTEgMTcyIDE5NFxuMTk1MyAxOTYgMTk2IDIzNiAyMzUgMjI5IDI0MyAyNjQgMjcyIDIzNyAyMTEgMTgwIDIwMVxuMTk1NCAyMDQgMTg4IDIzNSAyMjcgMjM0IDI2NCAzMDIgMjkzIDI1OSAyMjkgMjAzIDIyOVxuMTk1NSAyNDIgMjMzIDI2NyAyNjkgMjcwIDMxNSAzNjQgMzQ3IDMxMiAyNzQgMjM3IDI3OFxuMTk1NiAyODQgMjc3IDMxNyAzMTMgMzE4IDM3NCA0MTMgNDA1IDM1NSAzMDYgMjcxIDMwNlxuMTk1NyAzMTUgMzAxIDM1NiAzNDggMzU1IDQyMiA0NjUgNDY3IDQwNCAzNDcgMzA1IDMzNlxuMTk1OCAzNDAgMzE4IDM2MiAzNDggMzYzIDQzNSA0OTEgNTA1IDQwNCAzNTkgMzEwIDMzN1xuMTk1OSAzNjAgMzQyIDQwNiAzOTYgNDIwIDQ3MiA1NDggNTU5IDQ2MyA0MDcgMzYyIDQwNVxuMTk2MCA0MTcgMzkxIDQxOSA0NjEgNDcyIDUzNSA2MjIgNjA2IDUwOCA0NjEgMzkwIDQzMlxuIn0= -->
 <pre><code>     Jan Feb Mar Apr May Jun Jul Aug Sep Oct Nov Dec
@@ -1795,6 +1798,20 @@ pre code {
 1958 340 318 362 348 363 435 491 505 404 359 310 337
 1959 360 342 406 396 420 472 548 559 463 407 362 405
 1960 417 391 419 461 472 535 622 606 508 461 390 432</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<ul>
+<li>Previsão, controle, evolução através do tempo</li>
+</ul>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuc3VtbWFyeShBaXJQYXNzZW5nZXJzKVxuYGBgIn0= -->
+<pre class="r"><code>summary(AirPassengers)</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiICAgTWluLiAxc3QgUXUuICBNZWRpYW4gICAgTWVhbiAzcmQgUXUuICAgIE1heC4gXG4gIDEwNC4wICAgMTgwLjAgICAyNjUuNSAgIDI4MC4zICAgMzYwLjUgICA2MjIuMCBcbiJ9 -->
+<pre><code>   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+  104.0   180.0   265.5   280.3   360.5   622.0 </code></pre>
 <!-- rnb-output-end -->
 <!-- rnb-source-begin eyJkYXRhIjoiYGBgclxucGxvdChBaXJQYXNzZW5nZXJzKVxuYGBgIn0= -->
 <pre class="r"><code>plot(AirPassengers)</code></pre>
@@ -1813,7 +1830,7 @@ pre code {
 <!-- rnb-text-begin -->
 <!-- rnb-text-end -->
 
-<div id="rmd-source-code">LS0tDQp0aXRsZTogIlIgTm90ZWJvb2siDQpvdXRwdXQ6IGh0bWxfbm90ZWJvb2sNCi0tLQ0KDQoNCmBgYHtyfQ0KbGlicmFyeShmb3JlY2FzdCkNCg0KYGBgDQoNCg0KYGBge3J9DQpBaXJQYXNzZW5nZXJzDQoNCnBsb3QoQWlyUGFzc2VuZ2VycykNCnBsb3QoYWdncmVnYXRlKEFpclBhc3NlbmdlcnMpKQ0KDQpgYGANCg0K</div>
+<div id="rmd-source-code">LS0tDQp0aXRsZTogIlIgTm90ZWJvb2siDQpvdXRwdXQ6IGh0bWxfbm90ZWJvb2sNCi0tLQ0KDQoxIC0gQSBzw6lyaWUgdGVtcG9yYWwgw6kgdW1hIG1lc21hIHZhcmnDoXZlbCAtPiBzdXBvc2nDp8OjbyBkZSByZWxhw6fDo28gZW50cmUgaW50ZXJ2YWxvcy4NCjIgLSBQb3NzdWkgb3JkZW0uDQoNCj4gRXN0YWNpb27DoXJpYXM6IE1lc21hIG3DqWRpYSBlIHZhcsOibmNpYQ0KPiBOw6NvIEVzdGFjaW9uw6FyaWFzOiBQb2RlbSB0ZXIgZWZlaXRvcyBzYXpvbmFpcyBwb3IgZXgNCg0KPiBFc3RvY8Ohc3RpY2FzOiBGYXRvciBhbGVhdMOzcmlvIHF1ZSBuw6NvIHBvZGUgc2VyIGV4cGxpY2Fkbw0KPiBEZXRlcm1pbsOtc3RpY2FzOiBFeHBsaWNhZG8gYXRyYXbDqXMgZGUgZsOzcm11bGEgb3UgZnVuw6fDo28NCg0KYGBge3J9DQpsaWJyYXJ5KGZvcmVjYXN0KQ0KDQpBaXJQYXNzZW5nZXJzDQoNCmBgYA0KLSBQcmV2aXPDo28sIGNvbnRyb2xlLCBldm9sdcOnw6NvIGF0cmF2w6lzIGRvIHRlbXBvDQoNCmBgYHtyfQ0Kc3VtbWFyeShBaXJQYXNzZW5nZXJzKQ0KcGxvdChBaXJQYXNzZW5nZXJzKQ0KcGxvdChhZ2dyZWdhdGUoQWlyUGFzc2VuZ2VycykpDQpgYGANCg0K</div>
 
 
 

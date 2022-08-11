@@ -3,18 +3,26 @@ title: "R Notebook"
 output: html_notebook
 ---
 
+1 - A série temporal é uma mesma variável -> suposição de relação entre intervalos.
+2 - Possui ordem.
+
+> Estacionárias: Mesma média e varância
+> Não Estacionárias: Podem ter efeitos sazonais por ex
+
+> Estocásticas: Fator aleatório que não pode ser explicado
+> Determinísticas: Explicado através de fórmula ou função
 
 ```{r}
 library(forecast)
 
-```
-
-
-```{r}
 AirPassengers
 
+```
+- Previsão, controle, evolução através do tempo
+
+```{r}
+summary(AirPassengers)
 plot(AirPassengers)
 plot(aggregate(AirPassengers))
-
 ```
 
